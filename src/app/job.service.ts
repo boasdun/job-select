@@ -9,7 +9,7 @@ import { Job } from './job';
   providedIn: 'root'
 })
 export class JobService {
-  private jobUrl:string = '/assets/job-select/data.json';
+  private jobUrl = '/assets/job-select/data.json';
 
   constructor(private http: HttpClient) { }
 
