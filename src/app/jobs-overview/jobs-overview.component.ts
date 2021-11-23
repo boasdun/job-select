@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Job } from '../job';
 
-import JOBS from '../../assets/job-select/data.json';
+import { JobService } from '../job.service';
 
 @Component({
   selector: 'app-jobs-overview',
@@ -10,11 +10,17 @@ import JOBS from '../../assets/job-select/data.json';
   styleUrls: ['./jobs-overview.component.scss']
 })
 export class JobsOverviewComponent implements OnInit {
-  jobs: Job[] = JOBS;
+  jobs: Job[] = [];
 
-  constructor() { }
+  constructor(private jobService: JobService) { }
 
   ngOnInit(): void {
+    this.getJobs();
+  }
+
+  getJobs(): void {
+    this.jobService.getJobs()
+      .subscribe(jobs => this.jobs = jobs);
   }
 
 }
