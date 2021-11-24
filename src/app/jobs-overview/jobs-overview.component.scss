@@ -1,0 +1,11 @@
+@import '../../assets/scss/colors';
+
+article {
+  display: grid;
+  border-radius: 0.5em;
+  background: $white;
+  box-shadow: 0 0.5em 1em 0 rgba(0,0,0,0.15);
+  margin-bottom: 1em;
+  padding: 1em;
+  border-left: 0.5em solid $desaturated-dark-cyan;
+}

@@ -3,19 +3,19 @@
 <section *ngFor="let job of jobs">
   <article>
     <img [src]="'../../assets/job-select/' + job.logo"/>
-    <h5>{{ job.company }}</h5>
-    <h3>{{ job.position}}</h3>
+    <h5 class="bold">{{ job.company }}</h5>
+    <h3 class="bold">{{ job.position}}</h3>
     <ul>
-      <li><p>{{ job.postedAt }}</p></li>
-      <li><p>{{ job.contract }}</p></li>
-      <li><p>{{ job.location }}</p></li>
+      <li><h4>{{ job.postedAt }}</h4></li>
+      <li><h4>{{ job.contract }}</h4></li>
+      <li><h4>{{ job.location }}</h4></li>
     </ul>
     <ul>
       <li>
-        <p>{{ job.role }}</p>
+        <h5>{{ job.role }}</h5>
       </li>
       <li>
-        <p>{{ job.level }}</p>
+        <h5>{{ job.level }}</h5>
       </li>
       <li *ngFor="languages of job.languages;let i = index">
         <p>{{ job.languages[i] }}</p>

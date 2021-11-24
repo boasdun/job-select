@@ -1,0 +1,16 @@
+@import '../../assets/scss/colors';
+
+header {
+  position: relative;
+  width: 100%;
+  height: 156px;
+  overflow: hidden;
+  background: $desaturated-dark-cyan;
+  svg {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}

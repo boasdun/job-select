@@ -1,14 +1,13 @@
-@use 'assets/scss/fonts';
-@use 'assets/scss/colors';
-
-* {
-  font-family: 'Spartan', sans-serif;
-}
-
-html {
-  font-size: 62.5%;
-}
+@import 'assets/scss/reset';
+@import 'assets/scss/fonts';
+@import 'assets/scss/colors';
 
 body {
-	font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  width: 100%;
+  max-width: 960px;
+  padding: 1em;
 }
