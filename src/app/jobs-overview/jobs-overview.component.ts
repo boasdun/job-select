@@ -11,6 +11,7 @@ import { JobService } from '../job.service';
 })
 export class JobsOverviewComponent implements OnInit {
   jobs: Job[] = [];
+  alphabeticalOrder: boolean = true;
 
   constructor(private jobService: JobService) { }
 
@@ -23,4 +24,13 @@ export class JobsOverviewComponent implements OnInit {
       .subscribe(jobs => this.jobs = jobs);
   }
 
+  sortCompany() {
+    if (this.alphabeticalOrder) {
+      this.jobs.sort((a,b) => a.company.localeCompare(b.company));
+      this.alphabeticalOrder = !this.alphabeticalOrder;
+    } else {
+      this.jobs.sort((a,b) => b.company.localeCompare(a.company));
+      this.alphabeticalOrder = !this.alphabeticalOrder;
+    }
+  };
 }

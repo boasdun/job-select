@@ -19,10 +19,7 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    /* onderstaande checken voor JSON import */
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
