@@ -12,6 +12,7 @@ import { JobService } from '../job.service';
 export class JobsOverviewComponent implements OnInit {
   jobs: Job[] = [];
   alphabeticalOrder: boolean = true;
+  dateOrder: boolean = false;
 
   constructor(private jobService: JobService) { }
 
@@ -32,5 +33,15 @@ export class JobsOverviewComponent implements OnInit {
       this.jobs.sort((a,b) => b.company.localeCompare(a.company));
       this.alphabeticalOrder = !this.alphabeticalOrder;
     }
-  };
+  }
+
+  sortDate() {
+    if (this.dateOrder) {
+      this.jobs.sort((a,b) => a.id - b.id);
+      this.dateOrder = !this.dateOrder;
+    } else {
+      this.jobs.sort((a,b) => b.id - a.id);
+      this.dateOrder = !this.dateOrder;
+    }
+  }
 }

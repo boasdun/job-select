@@ -15,9 +15,10 @@ body {
 
 button {
   padding: 1em;
+  margin: 1em;
   border: solid 0.1em $desaturated-dark-cyan;
   background: $desaturated-dark-cyan;
   color: $white;
-  border-radius: 0.5em;
+  border-radius: 0.25em;
   cursor: pointer;
 }
