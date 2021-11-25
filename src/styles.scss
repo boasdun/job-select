@@ -5,9 +5,19 @@
 body {
   display: flex;
   flex-direction: column;
+  color: $very-dark-gray-cyan;
 }
 .container {
   width: 100%;
-  max-width: 960px;
+  // max-width: 960px;
   padding: 1em;
+}
+
+button {
+  padding: 1em;
+  border: solid 0.1em $desaturated-dark-cyan;
+  background: $desaturated-dark-cyan;
+  color: $white;
+  border-radius: 0.5em;
+  cursor: pointer;
 }

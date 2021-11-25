@@ -1,27 +1,27 @@
-<button (click)="sortCompany()">Sort by Company</button>
+<button (click)="sortCompany()"><h2 class="bold">Sort by Company</h2></button>
 
-<section *ngFor="let job of jobs">
-  <article>
+<section class="jobs-overview">
+  <article class="jobs-overview__vacancy" *ngFor="let job of jobs">
     <img [src]="'../../assets/job-select/' + job.logo"/>
     <h5 class="bold">{{ job.company }}</h5>
     <h3 class="bold">{{ job.position}}</h3>
-    <ul>
+    <ul class="vacancy__details">
       <li><h4>{{ job.postedAt }}</h4></li>
       <li><h4>{{ job.contract }}</h4></li>
       <li><h4>{{ job.location }}</h4></li>
     </ul>
-    <ul>
+    <ul class="vacancy__qualities">
       <li>
-        <h5>{{ job.role }}</h5>
+        <h5 class="bold">{{ job.role }}</h5>
       </li>
       <li>
-        <h5>{{ job.level }}</h5>
+        <h5 class="bold">{{ job.level }}</h5>
       </li>
       <li *ngFor="languages of job.languages;let i = index">
-        <p>{{ job.languages[i] }}</p>
+        <h5 class="bold">{{ job.languages[i] }}</h5>
       </li>
       <li *ngFor="tools of job.tools;let i = index">
-        <p>{{ job.tools[i] }}</p>
+        <h5 class="bold">{{ job.tools[i] }}</h5>
       </li>
     </ul>
   </article>
