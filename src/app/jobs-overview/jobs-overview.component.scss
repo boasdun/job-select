@@ -5,6 +5,7 @@ section.jobs-overview {
 
   article.jobs-overview__vacancy {
     display: grid;
+    background: $white;
     grid-column-gap: 0.5em;
     grid-template-columns: minmax(min-content, max-content) 3fr 4fr;
     // grid-auto-columns: minmax(min-content, max-content);
@@ -15,7 +16,7 @@ section.jobs-overview {
                           "company-logo job-details job-languages";
     border-radius: 0.5em;
     background: $white;
-    box-shadow: 0 0.5em 1em 0 rgba($desaturated-dark-cyan, 0.15);
+    box-shadow: 0 0.5em 1em 0 rgba($desaturated-dark-cyan, 0.05);
     margin-bottom: 1em;
     padding: 1em;
     border-left: 0.5em solid $desaturated-dark-cyan;
