@@ -26,6 +26,7 @@ section.jobs-overview {
     }
     h5 {
       grid-area: company-name;
+      align-self: end;
       color: $desaturated-dark-cyan;
     }
     h3 {
@@ -36,8 +37,24 @@ section.jobs-overview {
     ul.vacancy__details {
       display: flex;
       flex-direction: row;
+      list-style: none;
       grid-area: job-details;
       color: lighten($very-dark-gray-cyan, 50%);
+      li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &::before {
+          content: '·';
+          margin: 0 0.5em;
+        }
+        &:first-of-type {
+          align-self: center;
+          &::before {
+            content: none;
+          }
+        }
+      }
     }
 
     ul.vacancy__qualities {
