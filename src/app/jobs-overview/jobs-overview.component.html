@@ -1,5 +1,7 @@
 <button (click)="sortCompany()"><h4 class="bold">Sort by Company</h4></button>
 <button (click)="sortDate()"><h4 class="bold">Sort by Date</h4></button>
+<button (click)="filterJobs()"><h4 class="bold">Filter</h4></button>
+<button (click)="unfilterJobs()"><h4 class="bold">Unfilter</h4></button>
 
 <section class="jobs-overview">
   <article class="jobs-overview__vacancy" *ngFor="let job of jobs">
@@ -18,10 +20,10 @@
       <li>
         <h5 class="bold">{{ job.level }}</h5>
       </li>
-      <li *ngFor="languages of job.languages;let i = index">
+      <li *ngFor="let languages of job.languages;let i = index">
         <h5 class="bold">{{ job.languages[i] }}</h5>
       </li>
-      <li *ngFor="tools of job.tools;let i = index">
+      <li *ngFor="let tools of job.tools;let i = index">
         <h5 class="bold">{{ job.tools[i] }}</h5>
       </li>
     </ul>

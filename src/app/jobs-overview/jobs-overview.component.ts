@@ -44,4 +44,14 @@ export class JobsOverviewComponent implements OnInit {
       this.dateOrder = !this.dateOrder;
     }
   }
+
+  filterJobs() {
+    this.jobs = this.jobs.filter(job => {
+      return job.languages.includes('HTML')
+    });
+  }
+
+  unfilterJobs() {
+    this.getJobs();
+  }
 }
