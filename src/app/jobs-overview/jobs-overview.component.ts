@@ -45,13 +45,19 @@ export class JobsOverviewComponent implements OnInit {
     }
   }
 
-  filters: string[] = ['HTML', 'CSS'];
+  qualityFilter: string[] = ['HTML'];
 
   filterJobs() {
     this.jobs = this.jobs.filter(job => {
-      return job.languages.includes('HTML') && job.languages.includes('CSS')
+      const qualities = job.languages;
+      return this.qualityFilter.every(x => qualities.includes(x));
     });
   }
+  // filterJobs() {
+  //   this.jobs = this.jobs.filter(job => {
+  //     return job.languages.includes('HTML') && job.languages.includes('CSS')
+  //   });
+  // }
 
 
 
