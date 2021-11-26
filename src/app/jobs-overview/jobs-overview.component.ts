@@ -45,11 +45,15 @@ export class JobsOverviewComponent implements OnInit {
     }
   }
 
+  filters: string[] = ['HTML', 'CSS'];
+
   filterJobs() {
     this.jobs = this.jobs.filter(job => {
-      return job.languages.includes('HTML')
+      return job.languages.includes('HTML') && job.languages.includes('CSS')
     });
   }
+
+
 
   unfilterJobs() {
     this.getJobs();
