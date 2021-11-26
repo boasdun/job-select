@@ -63,7 +63,11 @@ export class JobsOverviewComponent implements OnInit {
   innerText: string = '';
 
   addToFilter(quality: string) {
-    this.qualityFilter.push(quality);
+    if (this.qualityFilter.indexOf(quality) > -1) {
+      this.qualityFilter.splice(this.qualityFilter.indexOf(quality), 1)
+    } else {
+      this.qualityFilter.push(quality);
+    }
     this.filterJobs()
   }
 }
