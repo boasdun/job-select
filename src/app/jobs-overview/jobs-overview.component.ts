@@ -45,9 +45,10 @@ export class JobsOverviewComponent implements OnInit {
     }
   }
 
-  qualityFilter: string[] = ['HTML'];
+  qualityFilter: string[] = [];
 
   filterJobs() {
+    this.qualityFilter = ['JavaScript'];
     this.jobs = this.jobs.filter(job => {
       const qualities = job.languages;
       return this.qualityFilter.every(x => qualities.includes(x));
@@ -61,7 +62,10 @@ export class JobsOverviewComponent implements OnInit {
 
 
 
+
   unfilterJobs() {
+    this.qualityFilter = [];
     this.getJobs();
+    this.filterJobs();
   }
 }
