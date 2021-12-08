@@ -7,7 +7,7 @@
 </section>
 
 <section class="jobs-overview">
-  <article class="jobs-overview__vacancy" *ngFor="let job of jobs">
+  <article class="jobs-overview__vacancy" *ngFor="let job of selectedJobs">
     <img [src]="'../../assets/job-select/' + job.logo"/>
     <h5 class="bold">{{ job.company }}</h5>
     <h3 class="bold">{{ job.position}}</h3>

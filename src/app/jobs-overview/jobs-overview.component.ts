@@ -10,7 +10,9 @@ import { JobService } from '../job.service';
   styleUrls: ['./jobs-overview.component.scss']
 })
 export class JobsOverviewComponent implements OnInit {
-  jobs: Job[] = [];
+  allJobs: Job[] = [];
+	selectedJobs: Job[] = [];
+
   alphabeticalOrder: boolean = true;
   dateOrder: boolean = false;
 
@@ -22,25 +24,35 @@ export class JobsOverviewComponent implements OnInit {
 
   getJobs(): void {
     this.jobService.getJobs()
-      .subscribe(jobs => this.jobs = jobs);
+      .subscribe(el => {
+        this.allJobs = el;
+        this.selectedJobs = el;
+      });
+  }
+
+  setJobs(): void {
+    this.selectedJobs = this.allJobs.filter(job => {
+      const qualities = job.languages.concat(job.tools, job.role, job.level);
+      return this.qualityFilter.every(el => qualities.includes(el));
+    });
   }
 
   sortCompany() {
     if (this.alphabeticalOrder) {
-      this.jobs.sort((a,b) => a.company.localeCompare(b.company));
+      this.selectedJobs.sort((a,b) => a.company.localeCompare(b.company));
       this.alphabeticalOrder = !this.alphabeticalOrder;
     } else {
-      this.jobs.sort((a,b) => b.company.localeCompare(a.company));
+      this.selectedJobs.sort((a,b) => b.company.localeCompare(a.company));
       this.alphabeticalOrder = !this.alphabeticalOrder;
     }
   }
 
   sortDate() {
     if (this.dateOrder) {
-      this.jobs.sort((a,b) => a.id - b.id);
+      this.selectedJobs.sort((a,b) => a.id - b.id);
       this.dateOrder = !this.dateOrder;
     } else {
-      this.jobs.sort((a,b) => b.id - a.id);
+      this.selectedJobs.sort((a,b) => b.id - a.id);
       this.dateOrder = !this.dateOrder;
     }
   }
@@ -48,10 +60,7 @@ export class JobsOverviewComponent implements OnInit {
   qualityFilter: string[] = [];
 
   filterJobs() {
-    this.jobs = this.jobs.filter(job => {
-      const qualities = job.languages.concat(job.tools, job.role, job.level);
-      return this.qualityFilter.every(x => qualities.includes(x));
-    });
+    this.setJobs();
   }
 
   unfilterJobs() {
@@ -59,8 +68,6 @@ export class JobsOverviewComponent implements OnInit {
     this.getJobs();
     this.filterJobs();
   }
-
-  innerText: string = '';
 
   addToFilter(quality: string) {
     if (this.qualityFilter.indexOf(quality) > -1) {
@@ -70,4 +77,6 @@ export class JobsOverviewComponent implements OnInit {
     }
     this.filterJobs()
   }
+
+
 }
