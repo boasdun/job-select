@@ -4,6 +4,54 @@
   display: none;
 }
 
+.jobs-overview__vacancy {
+  ul.vacancy__qualities {
+    justify-content: flex-end;
+  }
+}
+
+.jobs-overview__filter {
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5em;
+  padding: 0 1em;
+  width: 100%;
+  height: 4em;
+  background: $white;
+  h4 {
+    margin-left: auto;
+    align-self: center;
+  }
+  ul.vacancy__qualities {
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+ul.vacancy__qualities {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  grid-area: job-languages;
+  align-self: center;
+  justify-content: flex-end;
+  justify-self: flex-end;
+
+  li {
+    margin: 0.25em;
+    align-self: flex-end;
+    + li {
+      margin-left: 0.5em;
+    }
+    > h5 {
+      padding: 0.8em 1em;
+      border-radius: 0.5em;
+      background: $light-gray-cyan-tablets;
+      color: $desaturated-dark-cyan;
+    }
+  }
+}
+
 section.jobs-overview {
   margin-top: 1em;
 
@@ -61,30 +109,5 @@ section.jobs-overview {
         }
       }
     }
-
-    ul.vacancy__qualities {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      grid-area: job-languages;
-      align-self: center;
-      justify-content: flex-end;
-      justify-self: flex-end;
-
-      li {
-        margin: 0.25em;
-        align-self: flex-end;
-        + li {
-          margin-left: 0.5em;
-        }
-        > h5 {
-          padding: 0.8em 1em;
-          border-radius: 0.5em;
-          background: $light-gray-cyan-tablets;
-          color: $desaturated-dark-cyan;
-        }
-      }
-    }
   }
-
 }
