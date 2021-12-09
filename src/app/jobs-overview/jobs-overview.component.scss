@@ -1,4 +1,5 @@
 @import '../../assets/scss/colors';
+@import '../../assets/scss/variables';
 
 .hide {
   display: none;
@@ -21,8 +22,14 @@
   z-index: 2;
   background: $white;
   h4 {
+    cursor: pointer;
     margin-left: auto;
     align-self: center;
+    color: $dark-gray-cyan;
+    transition: color $small-transition;
+    &:hover {
+      color: $very-dark-gray-cyan;
+    }
   }
   ul.vacancy__qualities {
     justify-content: flex-start;
@@ -46,16 +53,21 @@ ul.vacancy__qualities {
       margin-left: 0.5em;
     }
     > h5 {
+      cursor: pointer;
       padding: 0.8em 1em;
       border-radius: 0.5em;
       background: $light-gray-cyan-tablets;
       color: $desaturated-dark-cyan;
+      transition: background $small-transition, color $small-transition;
+      &:hover {
+        background: darken($light-gray-cyan-tablets, 10%);
+        color: lighten($desaturated-dark-cyan, 10%);
+      }
     }
   }
 }
 
 section.jobs-overview {
-  margin-top: 1em;
 
   article.jobs-overview__vacancy {
     display: grid;
@@ -68,6 +80,15 @@ section.jobs-overview {
     grid-template-areas:  "company-logo company-name job-languages"
                           "company-logo job-position job-languages"
                           "company-logo job-details job-languages";
+    @media screen and (max-width: $sd-screen) {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: repeat(5, minmax(min-content, max-content));
+      grid-template-areas:  "company-logo . ."
+                            "company-name   company-name  company-name"
+                            "job-position   job-position  job-position"
+                            "job-details    job-details   job-details"
+                            "job-languages  job-languages job-languages";
+    }
     border-radius: 0.5em;
     background: $white;
     box-shadow: 0 0.5em 1em 0 rgba($desaturated-dark-cyan, 0.05);
@@ -78,11 +99,14 @@ section.jobs-overview {
     img {
       grid-area: company-logo;
       max-width: none;
+      @media screen and (max-width: $sd-screen) {
+        max-width: 50px;
+        transform: translateY(-50%);
+      }
     }
     h5 {
       grid-area: company-name;
       align-self: end;
-      color: $desaturated-dark-cyan;
     }
     h3 {
       grid-area: job-position;
