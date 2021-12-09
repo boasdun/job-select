@@ -46,7 +46,7 @@ ul.vacancy__qualities {
   justify-content: flex-end;
   justify-self: flex-end;
 
-  @media screen and (max-width: $sd-screen) {
+  @media screen and (max-width: $sm-screen) {
     justify-self: flex-start;
   }
 
@@ -78,13 +78,11 @@ section.jobs-overview {
     background: $white;
     grid-column-gap: 0.5em;
     grid-template-columns: minmax(min-content, max-content) 3fr 4fr;
-    // grid-auto-columns: minmax(min-content, max-content);
     grid-template-rows: 1fr 2fr 1fr;
-    // grid-auto-rows: minmax(min-content, max-content);
     grid-template-areas:  "company-logo company-name job-languages"
                           "company-logo job-position job-languages"
                           "company-logo job-details job-languages";
-    @media screen and (max-width: $sd-screen) {
+    @media screen and (max-width: $sm-screen) {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 25px repeat(4, minmax(min-content, max-content));
       grid-template-areas:  "company-logo . ."
@@ -104,15 +102,16 @@ section.jobs-overview {
     img {
       grid-area: company-logo;
       max-width: none;
-      @media screen and (max-width: $sd-screen) {
+      @media screen and (max-width: $md-screen) {
         max-width: 70px;
       }
-      @media screen and (max-width: $sd-screen) {
+      @media screen and (max-width: $sm-screen) {
         max-width: 50px;
         margin-top: calc(-25px - 1em);
       }
     }
     h5 {
+			color: $desaturated-dark-cyan;
       grid-area: company-name;
       align-self: end;
     }
