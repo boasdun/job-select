@@ -6,6 +6,7 @@ header {
   height: 156px;
   overflow: hidden;
   background: $desaturated-dark-cyan;
+  z-index: -1;
   svg {
     position: absolute;
     width: 100%;

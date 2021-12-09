@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 320px;
+  overflow-y: scroll;
   background: $light-gray-cyan-background;
   color: $very-dark-gray-cyan;
 }
