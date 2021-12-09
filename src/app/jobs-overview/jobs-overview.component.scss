@@ -46,6 +46,10 @@ ul.vacancy__qualities {
   justify-content: flex-end;
   justify-self: flex-end;
 
+  @media screen and (max-width: $sd-screen) {
+    justify-self: flex-start;
+  }
+
   li {
     margin: 0.25em;
     align-self: flex-end;
@@ -82,12 +86,13 @@ section.jobs-overview {
                           "company-logo job-details job-languages";
     @media screen and (max-width: $sd-screen) {
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: repeat(5, minmax(min-content, max-content));
+      grid-template-rows: 25px repeat(4, minmax(min-content, max-content));
       grid-template-areas:  "company-logo . ."
                             "company-name   company-name  company-name"
                             "job-position   job-position  job-position"
                             "job-details    job-details   job-details"
                             "job-languages  job-languages job-languages";
+      margin-top: calc(25px + 1em);
     }
     border-radius: 0.5em;
     background: $white;
@@ -100,8 +105,11 @@ section.jobs-overview {
       grid-area: company-logo;
       max-width: none;
       @media screen and (max-width: $sd-screen) {
+        max-width: 70px;
+      }
+      @media screen and (max-width: $sd-screen) {
         max-width: 50px;
-        transform: translateY(-50%);
+        margin-top: calc(-25px - 1em);
       }
     }
     h5 {
